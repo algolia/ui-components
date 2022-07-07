@@ -15,6 +15,10 @@
     {
       "path": "packages/highlighting-snippeting-vdom/dist/umd/index.js",
       "maxSize": "0 kB"
+    },
+    {
+      "path": "packages/shared/dist/umd/index.js",
+      "maxSize": "0 kB"
     }
   ]
 }

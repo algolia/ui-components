@@ -9,6 +9,7 @@ module.exports = {
       'packages/horizontal-slider-theme',
       'packages/horizontal-slider-vdom',
       'packages/highlighting-snippeting-vdom',
+      'packages/shared',
     ],
   },
   publishCommand({ tag }) {

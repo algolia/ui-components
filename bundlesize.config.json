@@ -11,6 +11,10 @@
     {
       "path": "packages/horizontal-slider-vdom/dist/umd/index.js",
       "maxSize": "1.75 kB"
+    },
+    {
+      "path": "packages/highlighting-snippeting-vdom/dist/umd/index.js",
+      "maxSize": "0 kB"
     }
   ]
 }

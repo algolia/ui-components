@@ -9,7 +9,8 @@ This repository is packaging the Algolia UI components, available for Vanilla Ja
 - [`@algolia/ui-components-horizontal-slider-js`](/packages/horizontal-slider-js): JavaScript package for the [Horizontal Slider](/packages/horizontal-slider-js)
 - [`@algolia/ui-components-horizontal-slider-react`](/packages/horizontal-slider-react): React package for the [Horizontal Slider](/packages/horizontal-slider-react)
 - [`@algolia/ui-components-horizontal-slider-theme`](/packages/horizontal-slider-theme): Theme for the [Horizontal Slider](/packages/horizontal-slider-js)
-- [`@algolia/ui-components-horizontal-slider-vdom`](/packages/horizontal-slider-vdom): VDOM package for the [Horizontal Slider](/packages/horizontal-slider-js)
+- [`@algolia/ui-components-highlighting-snippeting-vdom`](/packages/horizontal-slider-vdom): VDOM package for the [Horizontal Slider](/packages/horizontal-slider-js)
+- [`@algolia/ui-components-highlighting-snippeting-vdom`](/packages/highlighting-snippeting-vdom): VDOM package for the [highlighting and snippeting](https://www.algolia.com/doc/guides/building-search-ui/ui-and-ux-patterns/highlighting-snippeting/react-hooks/) components
 
 ## License
 

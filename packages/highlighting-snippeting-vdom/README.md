@@ -5,7 +5,7 @@ VDOM package for [highlighting-snippeting-vdom](https://github.com/algolia/ui-co
 ## Installation
 
 ```sh
-yarn add @algolia/highlighting-snippeting-vdom
+yarn add @algolia/ui-components-highlighting-snippeting-vdom
 # or
-npm install @algolia/highlighting-snippeting-vdom
+npm install @algolia/ui-components-highlighting-snippeting-vdom
 ```

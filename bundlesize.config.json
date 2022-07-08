@@ -14,11 +14,11 @@
     },
     {
       "path": "packages/highlight-vdom/dist/umd/index.js",
-      "maxSize": "0 kB"
+      "maxSize": "1 kB"
     },
     {
       "path": "packages/shared/dist/umd/index.js",
-      "maxSize": "0 kB"
+      "maxSize": "450 B"
     }
   ]
 }

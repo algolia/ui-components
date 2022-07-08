@@ -1,5 +1,11 @@
 /** @jsx createElement */
-import { ComponentChildren, ComponentProps, ElementType } from './types';
+import { cx } from '@algolia/ui-components-shared';
+
+import type {
+  ComponentChildren,
+  ComponentProps,
+  ElementType,
+} from '@algolia/ui-components-shared';
 
 type HighlightPartProps = {
   children: ComponentChildren;
@@ -103,8 +109,4 @@ export function createInternalHighlightComponent({ createElement, Fragment }) {
       </span>
     );
   };
-}
-
-function cx(...classNames: Array<string | undefined>) {
-  return classNames.filter(Boolean).join(' ');
 }

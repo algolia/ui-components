@@ -1,10 +1,10 @@
 /** @jsx createElement */
-import { cx } from '@algolia/ui-components-shared';
-
-import type {
+import {
+  cx,
   ComponentChildren,
   ComponentProps,
   ElementType,
+  Renderer,
 } from '@algolia/ui-components-shared';
 
 type HighlightPartProps = {
@@ -15,7 +15,7 @@ type HighlightPartProps = {
   isHighlighted: boolean;
 };
 
-function createHighlightPartComponent({ createElement }) {
+function createHighlightPartComponent({ createElement }: Renderer) {
   return function HighlightPart({
     classNames,
     children,
@@ -69,7 +69,10 @@ export type InternalHighlightProps = ComponentProps<'span'> & {
   parts: HighlightedPart[][];
 };
 
-export function createInternalHighlightComponent({ createElement, Fragment }) {
+export function createInternalHighlightComponent({
+  createElement,
+  Fragment,
+}: Renderer) {
   return function InternalHighlight({
     parts,
     highlightedTagName = 'mark',
@@ -79,7 +82,10 @@ export function createInternalHighlightComponent({ createElement, Fragment }) {
     classNames,
     ...props
   }: InternalHighlightProps) {
-    const HighlightPart = createHighlightPartComponent({ createElement });
+    const HighlightPart = createHighlightPartComponent({
+      createElement,
+      Fragment,
+    });
 
     return (
       <span {...props} className={cx(classNames.root, className)}>

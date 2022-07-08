@@ -1,8 +1,10 @@
 /** @jsx createElement */
+import type { Renderer } from '@algolia/ui-components-shared';
+
 import {
+  createInternalHighlightComponent,
   InternalHighlightProps,
   InternalHighlightClassNames,
-  createInternalHighlightComponent,
 } from './InternalHighlight';
 
 export type HighlightClassNames = InternalHighlightClassNames;
@@ -11,7 +13,10 @@ export type HighlightProps = Omit<InternalHighlightProps, 'classNames'> & {
   classNames?: Partial<HighlightClassNames>;
 };
 
-export function createHighlightComponent({ createElement, Fragment }) {
+export function createHighlightComponent({
+  createElement,
+  Fragment,
+}: Renderer) {
   return function Highlight({ classNames = {}, ...props }: HighlightProps) {
     const InternalHighlight = createInternalHighlightComponent({
       createElement,

@@ -2,33 +2,21 @@
 import { render } from '@testing-library/preact';
 import { createElement, Fragment } from 'preact';
 
-import { createInternalHighlightComponent } from '../InternalHighlight';
+import { createHighlightComponent } from '../Highlight';
 
-import type { InternalHighlightProps } from '../InternalHighlight';
-
-const InternalHighlight = createInternalHighlightComponent({
+const Highlight = createHighlightComponent({
   createElement,
   Fragment,
 });
 
-describe('InternalHighlight', () => {
+describe('Highlight', () => {
   test('renders only wrapper with empty match', () => {
-    const { container } = render(
-      <InternalHighlight
-        classNames={{
-          root: 'ROOT',
-          highlighted: 'HIGHLIGHTED',
-          nonHighlighted: 'NON-HIGHLIGHTED',
-          separator: 'SEPARATOR',
-        }}
-        parts={[]}
-      />
-    );
+    const { container } = render(<Highlight parts={[]} />);
 
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
-          class="ROOT"
+          class=""
         />
       </div>
     `);
@@ -36,13 +24,7 @@ describe('InternalHighlight', () => {
 
   test('renders parts', () => {
     const { container } = render(
-      <InternalHighlight
-        classNames={{
-          root: 'ROOT',
-          highlighted: 'HIGHLIGHTED',
-          nonHighlighted: 'NON-HIGHLIGHTED',
-          separator: 'SEPARATOR',
-        }}
+      <Highlight
         parts={[
           [
             { isHighlighted: true, value: 'te' },
@@ -56,26 +38,18 @@ describe('InternalHighlight', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
-          class="ROOT"
+          class=""
         >
-          <mark
-            class="HIGHLIGHTED"
-          >
+          <mark>
             te
           </mark>
-          <span
-            class="NON-HIGHLIGHTED"
-          >
+          <span>
             st
           </span>
-          <span
-            class="SEPARATOR"
-          >
+          <span>
             , 
           </span>
-          <span
-            class="NON-HIGHLIGHTED"
-          >
+          <span>
             nothing
           </span>
         </span>
@@ -92,13 +66,7 @@ describe('InternalHighlight', () => {
     }
 
     const { container } = render(
-      <InternalHighlight
-        classNames={{
-          root: 'ROOT',
-          highlighted: 'HIGHLIGHTED',
-          nonHighlighted: 'NON-HIGHLIGHTED',
-          separator: 'SEPARATOR',
-        }}
+      <Highlight
         highlightedTagName={Highlighted}
         nonHighlightedTagName={NonHighlighted}
         separator={<strong> - </strong>}
@@ -115,7 +83,7 @@ describe('InternalHighlight', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
-          class="ROOT"
+          class=""
         >
           <strong>
             te
@@ -123,9 +91,7 @@ describe('InternalHighlight', () => {
           <small>
             st
           </small>
-          <span
-            class="SEPARATOR"
-          >
+          <span>
             <strong>
                - 
             </strong>
@@ -139,28 +105,29 @@ describe('InternalHighlight', () => {
   });
 
   test('accepts custom class names', () => {
-    const props: InternalHighlightProps = {
-      parts: [
-        [
-          { isHighlighted: true, value: 'te' },
-          { isHighlighted: false, value: 'st' },
-        ],
-        [{ isHighlighted: false, value: 'nothing' }],
-      ],
-      className: 'MyCustomInternalHighlight',
-      classNames: {
-        root: 'ROOT',
-        highlighted: 'HIGHLIGHTED',
-        nonHighlighted: 'NON-HIGHLIGHTED',
-        separator: 'SEPARATOR',
-      },
-    };
-    const { container } = render(<InternalHighlight {...props} />);
+    const { container } = render(
+      <Highlight
+        parts={[
+          [
+            { isHighlighted: true, value: 'te' },
+            { isHighlighted: false, value: 'st' },
+          ],
+          [{ isHighlighted: false, value: 'nothing' }],
+        ]}
+        className="MyCustomHighlight"
+        classNames={{
+          root: 'ROOT',
+          highlighted: 'HIGHLIGHTED',
+          nonHighlighted: 'NON-HIGHLIGHTED',
+          separator: 'SEPARATOR',
+        }}
+      />
+    );
 
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
-          class="ROOT MyCustomInternalHighlight"
+          class="ROOT MyCustomHighlight"
         >
           <mark
             class="HIGHLIGHTED"
@@ -187,18 +154,47 @@ describe('InternalHighlight', () => {
     `);
   });
 
+  test('accepts partial custom class names', () => {
+    const { container } = render(
+      <Highlight
+        parts={[
+          [
+            { isHighlighted: true, value: 'te' },
+            { isHighlighted: false, value: 'st' },
+          ],
+          [{ isHighlighted: false, value: 'nothing' }],
+        ]}
+        classNames={{ root: 'ROOT', highlighted: 'HIGHLIGHTED' }}
+      />
+    );
+
+    expect(container).toMatchInlineSnapshot(`
+      <div>
+        <span
+          class="ROOT"
+        >
+          <mark
+            class="HIGHLIGHTED"
+          >
+            te
+          </mark>
+          <span>
+            st
+          </span>
+          <span>
+            , 
+          </span>
+          <span>
+            nothing
+          </span>
+        </span>
+      </div>
+    `);
+  });
+
   test('forwards `div` props to the root element', () => {
     const { container } = render(
-      <InternalHighlight
-        parts={[]}
-        classNames={{
-          root: 'ROOT',
-          highlighted: 'HIGHLIGHTED',
-          nonHighlighted: 'NON-HIGHLIGHTED',
-          separator: 'SEPARATOR',
-        }}
-        aria-hidden="true"
-      />
+      <Highlight parts={[]} classNames={{ root: 'ROOT' }} aria-hidden="true" />
     );
 
     expect(container.querySelector('.ROOT')).toHaveAttribute(

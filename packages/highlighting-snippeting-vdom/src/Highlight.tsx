@@ -1,39 +1,118 @@
 /** @jsx createElement */
-import type { Renderer } from '@algolia/ui-components-shared';
-
 import {
-  createInternalHighlightComponent,
-  InternalHighlightProps,
-  InternalHighlightClassNames,
-} from './InternalHighlight';
+  cx,
+  ComponentChildren,
+  ComponentProps,
+  ElementType,
+  Renderer,
+} from '@algolia/ui-components-shared';
 
-export type HighlightClassNames = InternalHighlightClassNames;
+type HighlightPartProps = {
+  children: ComponentChildren;
+  classNames: Partial<HighlightClassNames>;
+  highlightedTagName: ElementType;
+  nonHighlightedTagName: ElementType;
+  isHighlighted: boolean;
+};
 
-export type HighlightProps = Omit<InternalHighlightProps, 'classNames'> & {
+function createHighlightPartComponent({ createElement }: Renderer) {
+  return function HighlightPart({
+    classNames,
+    children,
+    highlightedTagName,
+    isHighlighted,
+    nonHighlightedTagName,
+  }: HighlightPartProps) {
+    const TagName = isHighlighted ? highlightedTagName : nonHighlightedTagName;
+
+    return (
+      <TagName
+        className={
+          isHighlighted ? classNames.highlighted : classNames.nonHighlighted
+        }
+      >
+        {children}
+      </TagName>
+    );
+  };
+}
+
+type HighlightedPart = {
+  isHighlighted: boolean;
+  value: string;
+};
+
+export type HighlightClassNames = {
+  /**
+   * Class names to apply to the root element
+   */
+  root: string;
+  /**
+   * Class names to apply to the highlighted parts
+   */
+  highlighted: string;
+  /**
+   * Class names to apply to the non-highlighted parts
+   */
+  nonHighlighted: string;
+  /**
+   * Class names to apply to the separator between highlighted parts
+   */
+  separator: string;
+};
+
+export type HighlightProps = ComponentProps<'span'> & {
   classNames?: Partial<HighlightClassNames>;
+  highlightedTagName?: ElementType;
+  nonHighlightedTagName?: ElementType;
+  separator?: ComponentChildren;
+  parts: HighlightedPart[][];
 };
 
 export function createHighlightComponent({
   createElement,
   Fragment,
 }: Renderer) {
-  return function Highlight({ classNames = {}, ...props }: HighlightProps) {
-    const InternalHighlight = createInternalHighlightComponent({
+  return function Highlight({
+    parts,
+    highlightedTagName = 'mark',
+    nonHighlightedTagName = 'span',
+    separator = ', ',
+    className,
+    classNames = {},
+    ...props
+  }: HighlightProps) {
+    const HighlightPart = createHighlightPartComponent({
       createElement,
       Fragment,
     });
 
     return (
-      <InternalHighlight
-        classNames={{
-          root: '',
-          highlighted: '',
-          nonHighlighted: '',
-          separator: '',
-          ...classNames,
-        }}
-        {...props}
-      />
+      <span {...props} className={cx(classNames.root, className)}>
+        {parts.map((part, partIndex) => {
+          const isLastPart = partIndex === parts.length - 1;
+
+          return (
+            <Fragment key={partIndex}>
+              {part.map((subPart, subPartIndex) => (
+                <HighlightPart
+                  key={subPartIndex}
+                  classNames={classNames}
+                  highlightedTagName={highlightedTagName}
+                  nonHighlightedTagName={nonHighlightedTagName}
+                  isHighlighted={subPart.isHighlighted}
+                >
+                  {subPart.value}
+                </HighlightPart>
+              ))}
+
+              {!isLastPart && (
+                <span className={classNames.separator}>{separator}</span>
+              )}
+            </Fragment>
+          );
+        })}
+      </span>
     );
   };
 }

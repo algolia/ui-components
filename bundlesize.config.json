@@ -13,7 +13,7 @@
       "maxSize": "1.75 kB"
     },
     {
-      "path": "packages/highlighting-snippeting-vdom/dist/umd/index.js",
+      "path": "packages/highlight-vdom/dist/umd/index.js",
       "maxSize": "0 kB"
     },
     {

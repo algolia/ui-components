@@ -1,10 +1,11 @@
 /** @jsx createElement */
+import { cx, Renderer } from '@algolia/ui-components-shared';
+
 import {
   FrameworkProps,
   HorizontalSliderProps,
   HorizontalSliderTranslations,
   RecordWithObjectID,
-  Renderer,
 } from './types';
 
 let lastHorizontalSliderId = 0;
@@ -30,10 +31,6 @@ export function updateNavigationButtonsProps({
   nextButtonRef.current.hidden =
     listRef.current.scrollLeft + listRef.current.clientWidth >=
     listRef.current.scrollWidth;
-}
-
-function cx(...classNames: Array<string | undefined>) {
-  return classNames.filter(Boolean).join(' ');
 }
 
 export function createHorizontalSliderComponent({ createElement }: Renderer) {

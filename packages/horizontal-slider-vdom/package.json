@@ -26,5 +26,8 @@
     "build:umd": "rollup --config",
     "build": "yarn build:clean && yarn build:esm && yarn build:umd && yarn build:types",
     "prepare": "yarn build:esm && yarn build:types"
+  },
+  "dependencies": {
+    "@algolia/ui-components-shared": "1.0.0"
   }
 }

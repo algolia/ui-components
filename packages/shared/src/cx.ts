@@ -1,3 +1,5 @@
-export function cx(...classNames: Array<string | undefined>) {
+export function cx(
+  ...classNames: Array<string | number | boolean | undefined | null>
+) {
   return classNames.filter(Boolean).join(' ');
 }

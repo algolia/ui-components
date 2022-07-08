@@ -17,11 +17,20 @@ type ComponentChild =
 
 export type ComponentChildren = ComponentChild[] | ComponentChild;
 
-export type ElementType<TProps = any> = {
-  [TKey in keyof JSX.IntrinsicElements]: TProps extends JSX.IntrinsicElements[TKey]
-    ? TKey
-    : never;
-}[keyof JSX.IntrinsicElements];
+type PropsWithChildren<TProps> = TProps & { children?: ComponentChildren };
+
+type FunctionComponent<TProps = {}> = (
+  props: PropsWithChildren<TProps>,
+  context?: any
+) => JSX.Element;
+
+export type ElementType<TProps = any> =
+  | {
+      [TKey in keyof JSX.IntrinsicElements]: TProps extends JSX.IntrinsicElements[TKey]
+        ? TKey
+        : never;
+    }[keyof JSX.IntrinsicElements]
+  | FunctionComponent<TProps>;
 
 export type ComponentProps<
   TComponent extends keyof JSX.IntrinsicElements

@@ -4,10 +4,7 @@ import { createElement, Fragment } from 'preact';
 
 import { createHighlightComponent } from '../Highlight';
 
-const Highlight = createHighlightComponent({
-  createElement,
-  Fragment,
-});
+const Highlight = createHighlightComponent({ createElement, Fragment });
 
 describe('Highlight', () => {
   test('renders only wrapper with empty match', () => {
@@ -53,19 +50,47 @@ describe('Highlight', () => {
     `);
   });
 
-  test('renders with custom tag names and separator', () => {
-    function Highlighted({ children }) {
-      return <strong>{children}</strong>;
-    }
-    function NonHighlighted({ children }) {
-      return <small>{children}</small>;
-    }
-
+  test('renders with custom separator', () => {
     const { container } = render(
       <Highlight
-        highlightedTagName={Highlighted}
-        nonHighlightedTagName={NonHighlighted}
         separator={<strong> - </strong>}
+        parts={[
+          [
+            { isHighlighted: true, value: 'te' },
+            { isHighlighted: false, value: 'st' },
+          ],
+          [{ isHighlighted: false, value: 'nothing' }],
+        ]}
+      />
+    );
+
+    expect(container).toMatchInlineSnapshot(`
+      <div>
+        <span>
+          <mark>
+            te
+          </mark>
+          <span>
+            st
+          </span>
+          <span>
+            <strong>
+               - 
+            </strong>
+          </span>
+          <span>
+            nothing
+          </span>
+        </span>
+      </div>
+    `);
+  });
+
+  test('renders with custom tag names as strings', () => {
+    const { container } = render(
+      <Highlight
+        highlightedTagName="strong"
+        nonHighlightedTagName="small"
         parts={[
           [
             { isHighlighted: true, value: 'te' },
@@ -86,9 +111,49 @@ describe('Highlight', () => {
             st
           </small>
           <span>
-            <strong>
-               - 
-            </strong>
+            , 
+          </span>
+          <small>
+            nothing
+          </small>
+        </span>
+      </div>
+    `);
+  });
+
+  test('renders with custom tag names as components', () => {
+    function Highlighted({ children }) {
+      return <strong>{children}</strong>;
+    }
+    function NonHighlighted({ children }) {
+      return <small>{children}</small>;
+    }
+
+    const { container } = render(
+      <Highlight
+        highlightedTagName={Highlighted}
+        nonHighlightedTagName={NonHighlighted}
+        parts={[
+          [
+            { isHighlighted: true, value: 'te' },
+            { isHighlighted: false, value: 'st' },
+          ],
+          [{ isHighlighted: false, value: 'nothing' }],
+        ]}
+      />
+    );
+
+    expect(container).toMatchInlineSnapshot(`
+      <div>
+        <span>
+          <strong>
+            te
+          </strong>
+          <small>
+            st
+          </small>
+          <span>
+            , 
           </span>
           <small>
             nothing

@@ -73,6 +73,11 @@ export function createHighlightComponent({
   createElement,
   Fragment,
 }: Renderer) {
+  const HighlightPart = createHighlightPartComponent({
+    createElement,
+    Fragment,
+  });
+
   return function Highlight({
     parts,
     highlightedTagName = 'mark',
@@ -82,11 +87,6 @@ export function createHighlightComponent({
     classNames = {},
     ...props
   }: HighlightProps) {
-    const HighlightPart = createHighlightPartComponent({
-      createElement,
-      Fragment,
-    });
-
     return (
       <span {...props} className={cx(classNames.root, className) || undefined}>
         {parts.map((part, partIndex) => {

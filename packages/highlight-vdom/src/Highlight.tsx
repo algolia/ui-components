@@ -88,7 +88,7 @@ export function createHighlightComponent({
     ...props
   }: HighlightProps) {
     return (
-      <span {...props} className={cx(classNames.root, className) || undefined}>
+      <span {...props} className={cx(classNames.root, className)}>
         {parts.map((part, partIndex) => {
           const isLastPart = partIndex === parts.length - 1;
 

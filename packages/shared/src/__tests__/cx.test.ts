@@ -12,4 +12,9 @@ describe('cx', () => {
   test('removes falsy values', () => {
     expect(cx('class1', false, undefined, null)).toBe('class1');
   });
+
+  test('returns `undefined` when empty', () => {
+    expect(cx('')).toBe(undefined);
+    expect(cx(false, undefined, null)).toBe(undefined);
+  });
 });

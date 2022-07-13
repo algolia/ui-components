@@ -1,4 +1,4 @@
-# 1.1.0 (2022-07-13)
+# [1.1.0](https://github.com/algolia/ui-components/compare/v1.1.0...v1.0.0) (2022-07-13)
 
 
 ### Features

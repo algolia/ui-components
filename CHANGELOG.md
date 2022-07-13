@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/algolia/ui-components/compare/v1.1.0...v1.0.0) (2022-07-13)
+
+
+### Features
+
+* introduce `highlight-vdom` and `shared` packages ([#2](https://github.com/algolia/ui-components/issues/2)) ([5bb888d](https://github.com/algolia/ui-components/commit/5bb888d4c505e5832b83af8d4bdb6582b36fd0b0))
+
+
+
 # [1.0.0](https://github.com/algolia/recommend/compare/v1.0.0-experimental.6...v1.0.0) (2021-06-30)
 
 This is the first stable release of the Recommend UI library. Check out the [**upgrade guide**](https://algolia.com/doc/ui-libraries/recommend/introduction/upgrade-guide/#upgrading-from-beta-to-stable) to migrate.

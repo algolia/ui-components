@@ -1,6 +1,6 @@
 {
   "name": "@algolia/ui-components-horizontal-slider-vdom",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "homepage": "https://github.com/algolia/ui-components",
   "repository": "algolia/ui-components",
@@ -28,6 +28,6 @@
     "prepare": "yarn build:esm && yarn build:types"
   },
   "dependencies": {
-    "@algolia/ui-components-shared": "1.0.0"
+    "@algolia/ui-components-shared": "1.1.0"
   }
 }

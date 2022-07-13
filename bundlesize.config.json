@@ -11,6 +11,14 @@
     {
       "path": "packages/horizontal-slider-vdom/dist/umd/index.js",
       "maxSize": "1.75 kB"
+    },
+    {
+      "path": "packages/highlight-vdom/dist/esm/Highlight.js",
+      "maxSize": "750 kB"
+    },
+    {
+      "path": "packages/shared/dist/umd/index.js",
+      "maxSize": "450 B"
     }
   ]
 }

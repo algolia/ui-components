@@ -3,6 +3,7 @@ export type Pragma = (
   props: Record<string, any> | null,
   ...children: ComponentChildren[]
 ) => JSX.Element;
+
 export type PragmaFrag = any;
 
 type ComponentChild =
@@ -13,7 +14,27 @@ type ComponentChild =
   | boolean
   | null
   | undefined;
-type ComponentChildren = ComponentChild[] | ComponentChild;
+
+export type ComponentChildren = ComponentChild[] | ComponentChild;
+
+type PropsWithChildren<TProps> = TProps & { children?: ComponentChildren };
+
+type FunctionComponent<TProps = {}> = (
+  props: PropsWithChildren<TProps>,
+  context?: any
+) => JSX.Element;
+
+export type ElementType<TProps = any> =
+  | {
+      [TKey in keyof JSX.IntrinsicElements]: TProps extends JSX.IntrinsicElements[TKey]
+        ? TKey
+        : never;
+    }[keyof JSX.IntrinsicElements]
+  | FunctionComponent<TProps>;
+
+export type ComponentProps<
+  TComponent extends keyof JSX.IntrinsicElements
+> = JSX.IntrinsicElements[TComponent];
 
 export type VNode<TProps = any> = {
   type: any;

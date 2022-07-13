@@ -27,11 +27,15 @@ aliases:
       mkdir -p packages/horizontal-slider-react/dist
       mkdir -p packages/horizontal-slider-vdom/dist
       mkdir -p packages/horizontal-slider-theme/dist
+      mkdir -p packages/highlight-vdom/dist
+      mkdir -p packages/shared/dist
 
       cp -R /tmp/workspace/packages/horizontal-slider-js/dist packages/horizontal-slider-js/
       cp -R /tmp/workspace/packages/horizontal-slider-react/dist packages/horizontal-slider-react/
       cp -R /tmp/workspace/packages/horizontal-slider-vdom/dist packages/horizontal-slider-vdom/
       cp -R /tmp/workspace/packages/horizontal-slider-theme/dist packages/horizontal-slider-theme/
+      cp -R /tmp/workspace/packages/highlight-vdom/dist packages/highlight-vdom/
+      cp -R /tmp/workspace/packages/shared/dist packages/shared/
 
 defaults: &defaults
   working_directory: ~/ui-components
@@ -65,11 +69,16 @@ jobs:
             mkdir -p /tmp/workspace/packages/horizontal-slider-react/dist
             mkdir -p /tmp/workspace/packages/horizontal-slider-vdom/dist
             mkdir -p /tmp/workspace/packages/horizontal-slider-theme/dist
+            mkdir -p /tmp/workspace/packages/highlight-vdom/dist
+            mkdir -p /tmp/workspace/packages/shared/dist
 
             cp -R packages/horizontal-slider-js/dist /tmp/workspace/packages/horizontal-slider-js
             cp -R packages/horizontal-slider-react/dist /tmp/workspace/packages/horizontal-slider-react
             cp -R packages/horizontal-slider-vdom/dist /tmp/workspace/packages/horizontal-slider-vdom
             cp -R packages/horizontal-slider-theme/dist /tmp/workspace/packages/horizontal-slider-theme
+            cp -R packages/highlight-vdom/dist /tmp/workspace/packages/highlight-vdom
+            cp -R packages/shared/dist /tmp/workspace/packages/shared
+
       - persist_to_workspace:
           root: *workspace_root
           paths:

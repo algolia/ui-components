@@ -8,6 +8,8 @@ module.exports = {
       'packages/horizontal-slider-react',
       'packages/horizontal-slider-theme',
       'packages/horizontal-slider-vdom',
+      'packages/highlight-vdom',
+      'packages/shared',
     ],
   },
   publishCommand({ tag }) {

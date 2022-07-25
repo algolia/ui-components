@@ -1,3 +1,12 @@
+## [1.1.2](https://github.com/algolia/ui-components/compare/v1.1.1...v1.1.2) (2022-07-25)
+
+
+### Bug Fixes
+
+* **shared:** remove UMD entry points and add CommonJS ([#9](https://github.com/algolia/ui-components/issues/9)) ([46e7ccf](https://github.com/algolia/ui-components/commit/46e7ccf4feb4733d537c066969eea7aadfd978a3))
+
+
+
 ## [1.1.1](https://github.com/algolia/ui-components/compare/v1.1.0...v1.1.1) (2022-07-18)
 
 

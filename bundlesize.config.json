@@ -17,8 +17,8 @@
       "maxSize": "750 kB"
     },
     {
-      "path": "packages/shared/dist/umd/index.js",
-      "maxSize": "450 B"
+      "path": "packages/shared/dist/esm/index.js",
+      "maxSize": "75 B"
     }
   ]
 }

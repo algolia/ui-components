@@ -28,6 +28,7 @@
     "prepare": "yarn build:esm && yarn build:types"
   },
   "dependencies": {
-    "@algolia/ui-components-shared": "1.1.2"
+    "@algolia/ui-components-shared": "1.1.2",
+    "@babel/runtime": "^7.0.0"
   }
 }

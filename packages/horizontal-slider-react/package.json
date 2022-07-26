@@ -28,7 +28,8 @@
     "prepare": "yarn build:esm && yarn build:types"
   },
   "dependencies": {
-    "@algolia/ui-components-horizontal-slider-vdom": "1.1.2"
+    "@algolia/ui-components-horizontal-slider-vdom": "1.1.2",
+    "@babel/runtime": "^7.0.0"
   },
   "peerDependencies": {
     "react": ">= 16.8.0 < 18",

@@ -1,3 +1,12 @@
+## [1.1.3](https://github.com/algolia/ui-components/compare/v1.1.2...v1.1.3) (2022-07-26)
+
+
+### Bug Fixes
+
+* add @babel/runtime as a dependency in relevant packages ([#11](https://github.com/algolia/ui-components/issues/11)) ([a31d918](https://github.com/algolia/ui-components/commit/a31d918837bb31232a85b64a73cf40733cf1f1f9))
+
+
+
 ## [1.1.2](https://github.com/algolia/ui-components/compare/v1.1.1...v1.1.2) (2022-07-25)
 
 

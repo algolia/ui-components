@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@algolia/ui-components-horizontal-slider-vdom": "1.1.2",
+    "@babel/runtime": "^7.0.0",
     "preact": "^10.0.0"
   }
 }

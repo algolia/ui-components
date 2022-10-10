@@ -1,5 +1,6 @@
-// this adds the used types if they haven't been set by @types/react or preact
-// In the future this may be fixable by accepting a JSX generic to every type
+// Prevents type errors when using without a JSX implementation
+// (e.g., Angular InstantSearch via InstantSearch.js)
+// In the future, this may be fixable by accepting a JSX generic to every type
 // or a `createRenderer` function that implies a JSX generic.
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

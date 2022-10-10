@@ -1,3 +1,13 @@
+## [1.1.4](https://github.com/algolia/ui-components/compare/v1.1.3...v1.1.4) (2022-10-10)
+
+
+### Bug Fixes
+
+* **babel:** remove jsx pragma comment in output ([#14](https://github.com/algolia/ui-components/issues/14)) ([7fc9047](https://github.com/algolia/ui-components/commit/7fc90477b710755be00b92f9cf85e7aa0be28c1b))
+* **shared:** make usable when there's no preact or react ([#13](https://github.com/algolia/ui-components/issues/13)) ([9bcee85](https://github.com/algolia/ui-components/commit/9bcee850f0f7eadc074772513a55642962356ed5))
+
+
+
 ## [1.1.3](https://github.com/algolia/ui-components/compare/v1.1.2...v1.1.3) (2022-07-26)
 
 

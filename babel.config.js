@@ -32,5 +32,7 @@ module.exports = (api) => {
         },
       ],
     ],
+    // JSX is transpiled, so the comment should no longer be present in final files
+    shouldPrintComment: (value) => !value.startsWith('* @jsx'),
   };
 };

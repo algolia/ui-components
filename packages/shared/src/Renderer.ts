@@ -1,3 +1,24 @@
+// Prevents type errors when using without a JSX implementation
+// (e.g., Angular InstantSearch via InstantSearch.js)
+// In the future, this may be fixable by accepting a JSX generic to every type
+// or a `createRenderer` function that implies a JSX generic.
+//
+// This may be removable when this package is only used in an environment with JSX.
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface Element {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface IntrinsicElements {}
+  }
+}
+
+// For safety when there's no @types/react or preact, we don't directly use JSX.IntrinsicElements
+type IntrinsicElements = keyof JSX.IntrinsicElements extends never
+  ? Record<string, unknown>
+  : JSX.IntrinsicElements;
+
 export type Pragma = (
   type: any,
   props: Record<string, any> | null,
@@ -26,15 +47,15 @@ type FunctionComponent<TProps = {}> = (
 
 export type ElementType<TProps = any> =
   | {
-      [TKey in keyof JSX.IntrinsicElements]: TProps extends JSX.IntrinsicElements[TKey]
+      [TKey in keyof IntrinsicElements]: TProps extends IntrinsicElements[TKey]
         ? TKey
         : never;
-    }[keyof JSX.IntrinsicElements]
+    }[keyof IntrinsicElements]
   | FunctionComponent<TProps>;
 
 export type ComponentProps<
-  TComponent extends keyof JSX.IntrinsicElements
-> = JSX.IntrinsicElements[TComponent];
+  TComponent extends keyof IntrinsicElements
+> = IntrinsicElements[TComponent];
 
 export type VNode<TProps = any> = {
   type: any;

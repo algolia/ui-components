@@ -1,3 +1,16 @@
+// this adds the used types if they haven't been set by @types/react or preact
+// In the future this may be fixable by accepting a JSX generic to every type
+// or a `createRenderer` function that implies a JSX generic.
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface Element {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface IntrinsicElements {}
+  }
+}
+
 export type Pragma = (
   type: any,
   props: Record<string, any> | null,

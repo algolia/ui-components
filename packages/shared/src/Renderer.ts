@@ -12,6 +12,11 @@ declare global {
   }
 }
 
+// For safety when there's no @types/react or preact, we don't directly use JSX.IntrinsicElements
+type IntrinsicElements = keyof JSX.IntrinsicElements extends never
+  ? Record<string, unknown>
+  : JSX.IntrinsicElements;
+
 export type Pragma = (
   type: any,
   props: Record<string, any> | null,
@@ -40,15 +45,15 @@ type FunctionComponent<TProps = {}> = (
 
 export type ElementType<TProps = any> =
   | {
-      [TKey in keyof JSX.IntrinsicElements]: TProps extends JSX.IntrinsicElements[TKey]
+      [TKey in keyof IntrinsicElements]: TProps extends IntrinsicElements[TKey]
         ? TKey
         : never;
-    }[keyof JSX.IntrinsicElements]
+    }[keyof IntrinsicElements]
   | FunctionComponent<TProps>;
 
 export type ComponentProps<
-  TComponent extends keyof JSX.IntrinsicElements
-> = JSX.IntrinsicElements[TComponent];
+  TComponent extends keyof IntrinsicElements
+> = IntrinsicElements[TComponent];
 
 export type VNode<TProps = any> = {
   type: any;

@@ -1,0 +1,5 @@
+{
+  "name": "empty-package",
+  "version": "0.0.0",
+  "description": "empty package, used in tests as an alias for @types/react"
+}

@@ -1,1 +1,1 @@
-// this file allows empty-package to be an @types/ package
+// This file allows `empty-package` to be an `@types/` package

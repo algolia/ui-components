@@ -107,7 +107,7 @@ jobs:
       - run:
           name: Type checking
           command: yarn run test:types
-  test_types_no_react:
+  test_types_no_jsx_implementation:
     <<: *defaults
     steps:
       - checkout
@@ -133,7 +133,7 @@ jobs:
             yarn install --ignore-scripts
       - run:
           name: Type checking
-          # build:types is used, as it's easier to ignore the React packages
+          # Using build:types instead of test:types, as it's easier to ignore the React packages
           command: yarn build:types --ignore '@algolia/*-react'
   test_unit:
     <<: *defaults
@@ -181,7 +181,7 @@ workflows:
     jobs:
       - build
       - test_types
-      - test_types_no_react
+      - test_types_no_jsx_implementation
       - test_lint:
           requires:
             - build

@@ -7,8 +7,8 @@ import {
   Renderer,
 } from '@algolia/ui-components-shared';
 
-// basic types to allow this file to compile without @types/react or preact
-// this is a minimal subset of the actual types, coming from the JSX namespace
+// Basic types to allow this file to compile without a JSX implementation.
+// This is a minimal subset of the actual types from the `JSX` namespace.
 interface IntrinsicElement extends JSX.IntrinsicAttributes {
   children?: ComponentChildren;
   className?: string;

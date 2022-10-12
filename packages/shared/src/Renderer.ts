@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 // Prevents type errors when using without a JSX implementation
 // (e.g., Angular InstantSearch via InstantSearch.js)
 // In the future, this may be fixable by accepting a JSX generic to every type
@@ -7,9 +8,20 @@
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Element {}
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface IntrinsicAttributes {
+      key?: string | number | null;
+      ref?: unknown;
+    }
+
+    interface ElementChildrenAttribute {
+      children: ComponentChildren;
+    }
+
+    interface Element<TProps = any, TType = any> {
+      type: TType;
+      props: TProps;
+      key: string | number | null;
+    }
     interface IntrinsicElements {}
   }
 }

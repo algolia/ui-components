@@ -1,3 +1,12 @@
+## [1.1.5](https://github.com/algolia/ui-components/compare/v1.1.4...v1.1.5) (2022-10-12)
+
+
+### Bug Fixes
+
+* **types:** complete used interface of JSX fallback ([#16](https://github.com/algolia/ui-components/issues/16)) ([2cbcee8](https://github.com/algolia/ui-components/commit/2cbcee8aa4207d6cabdf8162056437f12378e83d))
+
+
+
 ## [1.1.4](https://github.com/algolia/ui-components/compare/v1.1.3...v1.1.4) (2022-10-10)
 
 

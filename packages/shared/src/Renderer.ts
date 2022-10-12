@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 // Prevents type errors when using without a JSX implementation
 // (e.g., Angular InstantSearch via InstantSearch.js)
 // In the future, this may be fixable by accepting a JSX generic to every type
@@ -7,9 +8,16 @@
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Element {}
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface IntrinsicAttributes {
+      key?: string | number | null;
+      ref?: unknown;
+    }
+
+    interface ElementChildrenAttribute {
+      children: ComponentChildren;
+    }
+
+    interface Element extends VNode {}
     interface IntrinsicElements {}
   }
 }
@@ -59,7 +67,10 @@ export type ComponentProps<
 
 export type VNode<TProps = any> = {
   type: any;
-  props: TProps & { children: ComponentChildren; key?: any };
+  props: TProps & {
+    children: ComponentChildren;
+    key?: string | number | null;
+  };
 };
 
 export type Renderer = {

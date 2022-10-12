@@ -7,6 +7,23 @@ import {
   Renderer,
 } from '@algolia/ui-components-shared';
 
+// Basic types to allow this file to compile without a JSX implementation.
+// This is a minimal subset of the actual types from the `JSX` namespace.
+interface IntrinsicElement extends JSX.IntrinsicAttributes {
+  children?: ComponentChildren;
+  className?: string;
+}
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      span: IntrinsicElement;
+      mark: IntrinsicElement;
+    }
+  }
+}
+
 type HighlightPartProps = {
   children: ComponentChildren;
   classNames: Partial<HighlightClassNames>;

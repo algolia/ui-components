@@ -137,7 +137,7 @@ jobs:
       - run:
           name: Type checking
           # Using build:types instead of test:types, as it's easier to run only the VDOM types
-          command: yarn build:types --scope '@algolia/*-vdom'
+          command: yarn build:types --scope '@algolia/*-{shared,vdom}'
   test_unit:
     <<: *defaults
     steps:

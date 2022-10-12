@@ -17,11 +17,7 @@ declare global {
       children: ComponentChildren;
     }
 
-    interface Element<TProps = any, TType = any> {
-      type: TType;
-      props: TProps;
-      key: string | number | null;
-    }
+    interface Element extends VNode {}
     interface IntrinsicElements {}
   }
 }
@@ -71,7 +67,10 @@ export type ComponentProps<
 
 export type VNode<TProps = any> = {
   type: any;
-  props: TProps & { children: ComponentChildren; key?: any };
+  props: TProps & {
+    children: ComponentChildren;
+    key?: string | number | null;
+  };
 };
 
 export type Renderer = {

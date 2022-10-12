@@ -116,13 +116,16 @@ jobs:
       - run:
           name: Remove React types
           command: |
-            # This simulates @types/react not being installed
+            # This simulates @types/react and preact not being installed
             node -e "
               fs.writeFileSync(
                 './package.json',
                 JSON.stringify(
                   Object.assign(require('./package.json'), {
-                    resolutions: { '@types/react': 'file:./scripts/empty-package' },
+                    resolutions: { 
+                      '@types/react': 'file:./scripts/empty-package',
+                      'preact': 'file:./scripts/empty-package',
+                    },
                   }),
                   null,
                   2
@@ -133,8 +136,8 @@ jobs:
             yarn install --ignore-scripts
       - run:
           name: Type checking
-          # Using build:types instead of test:types, as it's easier to ignore the React packages
-          command: yarn build:types --ignore '@algolia/*-react'
+          # Using build:types instead of test:types, as it's easier to run only the VDOM types
+          command: yarn build:types --scope '@algolia/*-vdom'
   test_unit:
     <<: *defaults
     steps:

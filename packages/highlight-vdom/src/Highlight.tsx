@@ -95,19 +95,17 @@ export function createHighlightComponent({
     Fragment,
   });
 
-  return function Highlight(props: HighlightProps) {
-    const {
-      parts,
-      highlightedTagName = 'mark',
-      nonHighlightedTagName = 'span',
-      separator = ', ',
-      className,
-      classNames = {},
-      ...rest
-    } = props;
-
+  return function Highlight({
+    parts,
+    highlightedTagName = 'mark',
+    nonHighlightedTagName = 'span',
+    separator = ', ',
+    className,
+    classNames = {},
+    ...props
+  }: HighlightProps) {
     return (
-      <span {...rest} className={cx(classNames.root, className)}>
+      <span {...props} className={cx(classNames.root, className)}>
         {parts.map((part, partIndex) => {
           const isLastPart = partIndex === parts.length - 1;
 

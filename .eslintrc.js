@@ -7,6 +7,7 @@ module.exports = {
   globals: {
     __DEV__: false,
     __TEST__: false,
+    JSX: false,
   },
   settings: {
     react: {
@@ -36,6 +37,7 @@ module.exports = {
         allow: ['hierarchical_categories'],
       },
     ],
+    '@typescript-eslint/no-use-before-define': OFF,
     'import/order': [
       ERROR,
       {

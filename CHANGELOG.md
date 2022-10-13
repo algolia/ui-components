@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/algolia/ui-components/compare/v1.1.5...v1.2.0) (2022-10-13)
+
+
+### Features
+
+* **shared:** add array support to cx utility ([#18](https://github.com/algolia/ui-components/issues/18)) ([37da61f](https://github.com/algolia/ui-components/commit/37da61f6e63efe749c78b7435517c818ae5f123f))
+
+
+
 ## [1.1.5](https://github.com/algolia/ui-components/compare/v1.1.4...v1.1.5) (2022-10-12)
 
 

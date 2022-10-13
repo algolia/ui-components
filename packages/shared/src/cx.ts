@@ -1,9 +1,9 @@
-type classValue = string | undefined | boolean | null | number;
+type ClassValue = string | undefined | boolean | null | number;
 
-export function cx(...cssClasses: Array<classValue | classValue[]>) {
+export function cx(...cssClasses: Array<ClassValue | ClassValue[]>) {
   return (
     cssClasses
-      .reduce<classValue[]>((acc, className) => {
+      .reduce<ClassValue[]>((acc, className) => {
         if (Array.isArray(className)) {
           return acc.concat(className);
         }

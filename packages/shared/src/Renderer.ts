@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 // Prevents type errors when using without a JSX implementation
 // (e.g., Angular InstantSearch via InstantSearch.js)

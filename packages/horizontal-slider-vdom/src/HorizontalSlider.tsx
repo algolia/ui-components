@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /** @jsx createElement */
 import { ComponentChildren, cx, Renderer } from '@algolia/ui-components-shared';
 

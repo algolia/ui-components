@@ -17,4 +17,16 @@ describe('cx', () => {
     expect(cx('')).toBe(undefined);
     expect(cx(false, undefined, null)).toBe(undefined);
   });
+
+  test('recursively concatenates arrays', () => {
+    expect(cx(['class1', 'class2'], ['class3', 'class4'])).toBe(
+      'class1 class2 class3 class4'
+    );
+    expect(cx(['class1', 'class2'], false && ['class3', 'class4'])).toBe(
+      'class1 class2'
+    );
+    expect(
+      cx(['class1', false && 'class2'], ['class3', false && 'class4'])
+    ).toBe('class1 class3');
+  });
 });

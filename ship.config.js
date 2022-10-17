@@ -1,16 +1,20 @@
+const shell = require('shelljs');
+
+const packages = JSON.parse(
+  shell.exec('yarn run --silent lerna list --toposort --json', {
+    silent: true,
+  })
+);
+const cwd = process.cwd();
+
 module.exports = {
   monorepo: {
     mainVersionFile: 'lerna.json',
     // We rely on Lerna to bump our dependencies.
     packagesToBump: [],
-    packagesToPublish: [
-      'packages/shared',
-      'packages/highlight-vdom',
-      'packages/horizontal-slider-vdom',
-      'packages/horizontal-slider-js',
-      'packages/horizontal-slider-react',
-      'packages/horizontal-slider-theme',
-    ],
+    packagesToPublish: packages.map(({ location }) =>
+      location.replace(cwd + '/', '')
+    ),
   },
   publishCommand({ tag }) {
     return `yarn publish --access public --tag ${tag}`;

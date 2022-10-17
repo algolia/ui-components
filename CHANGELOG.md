@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/algolia/ui-components/compare/v1.2.0...v1.2.1) (2022-10-17)
+
+
+### Bug Fixes
+
+* **cx:** return a consistent string type ([#21](https://github.com/algolia/ui-components/issues/21)) ([2ec0751](https://github.com/algolia/ui-components/commit/2ec07513922d73b1387e4b7024392d49c7c517bb)), closes [#20](https://github.com/algolia/ui-components/issues/20)
+
+
+
 # [1.2.0](https://github.com/algolia/ui-components/compare/v1.1.5...v1.2.0) (2022-10-13)
 
 

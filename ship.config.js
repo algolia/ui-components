@@ -4,12 +4,12 @@ module.exports = {
     // We rely on Lerna to bump our dependencies.
     packagesToBump: [],
     packagesToPublish: [
+      'packages/shared',
+      'packages/highlight-vdom',
+      'packages/horizontal-slider-vdom',
       'packages/horizontal-slider-js',
       'packages/horizontal-slider-react',
       'packages/horizontal-slider-theme',
-      'packages/horizontal-slider-vdom',
-      'packages/highlight-vdom',
-      'packages/shared',
     ],
   },
   publishCommand({ tag }) {

@@ -12,7 +12,9 @@ describe('Highlight', () => {
 
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <span />
+        <span
+          class=""
+        />
       </div>
     `);
   });
@@ -32,7 +34,9 @@ describe('Highlight', () => {
 
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <span>
+        <span
+          class=""
+        >
           <mark>
             te
           </mark>
@@ -66,7 +70,9 @@ describe('Highlight', () => {
 
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <span>
+        <span
+          class=""
+        >
           <mark>
             te
           </mark>
@@ -103,7 +109,9 @@ describe('Highlight', () => {
 
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <span>
+        <span
+          class=""
+        >
           <strong>
             te
           </strong>
@@ -145,7 +153,9 @@ describe('Highlight', () => {
 
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <span>
+        <span
+          class=""
+        >
           <strong>
             te
           </strong>

@@ -13,9 +13,9 @@ describe('cx', () => {
     expect(cx('class1', false, undefined, null)).toBe('class1');
   });
 
-  test('returns `undefined` when empty', () => {
-    expect(cx('')).toBe(undefined);
-    expect(cx(false, undefined, null)).toBe(undefined);
+  test('returns `""` when empty', () => {
+    expect(cx('')).toBe('');
+    expect(cx(false, undefined, null)).toBe('');
   });
 
   test('recursively concatenates arrays', () => {

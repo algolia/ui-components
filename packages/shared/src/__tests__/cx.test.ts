@@ -13,7 +13,7 @@ describe('cx', () => {
     expect(cx('class1', false, undefined, null)).toBe('class1');
   });
 
-  test('returns `""` when empty', () => {
+  test('returns an empty string when falsy', () => {
     expect(cx('')).toBe('');
     expect(cx(false, undefined, null)).toBe('');
   });

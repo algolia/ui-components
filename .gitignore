@@ -14,3 +14,4 @@ dist/
 
 # Environment files
 .env
+.git/

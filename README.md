@@ -16,3 +16,4 @@ This repository is packaging the Algolia UI components, available for Vanilla Ja
 ## License
 
 [MIT](LICENSE)
+test

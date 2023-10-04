@@ -22,6 +22,6 @@ export type HorizontalSliderTranslations = Partial<{
 export type HorizontalSliderProps<TItem extends RecordWithObjectID> = {
   classNames?: HorizontalSliderClassnames;
   items: TItem[];
-  itemComponent({ item: TItem }): JSX.Element;
+  itemComponent(props: { item: TItem }): JSX.Element;
   translations?: HorizontalSliderTranslations;
 };

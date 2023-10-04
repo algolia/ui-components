@@ -1,0 +1,16 @@
+{
+  "name": "@algolia/test-package",
+  "description": "used to test typescript",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "@algolia/ui-components-highlight-vdom": "1.2.1",
+    "@algolia/ui-components-horizontal-slider-vdom": "1.2.1",
+    "typescript": "4.2.4"
+  },
+  "scripts": {
+    "remove-dependencies": "node remove-dependencies.cjs",
+    "test": "yarn tsc usage.ts --noEmit"
+  }
+}

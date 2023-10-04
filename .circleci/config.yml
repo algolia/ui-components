@@ -114,30 +114,16 @@ jobs:
       - run: *install_yarn_version
       - restore_cache: *restore_yarn_cache
       - run:
+          name: Build types
+          command: yarn build:types --scope '@algolia/*-{shared,vdom}'
+      - run:
           name: Remove React types
           command: |
-            # This simulates @types/react and preact not being installed
-            node -e "
-              fs.writeFileSync(
-                './package.json',
-                JSON.stringify(
-                  Object.assign(require('./package.json'), {
-                    resolutions: { 
-                      '@types/react': 'file:./scripts/empty-package',
-                      'preact': 'file:./scripts/empty-package',
-                    },
-                  }),
-                  null,
-                  2
-                )
-              );
-            "
-            # not running the scripts, as they should not run for *-react
+            yarn workspace @algolia/test-package remove-dependencies
             yarn install --ignore-scripts
       - run:
-          name: Type checking
-          # Using build:types instead of test:types, as it's easier to run only the VDOM types
-          command: yarn build:types --scope '@algolia/*-{shared,vdom}'
+          name: Type checking of usage
+          command: yarn workspace @algolia/test-package test
   test_unit:
     <<: *defaults
     steps:

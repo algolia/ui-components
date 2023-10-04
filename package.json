@@ -4,7 +4,8 @@
   "license": "MIT",
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/*",
+    "scripts/test-package"
   ],
   "scripts": {
     "build:clean": "lerna run build:clean --no-private",

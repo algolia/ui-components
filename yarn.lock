@@ -2,6 +2,27 @@
 # yarn lockfile v1
 
 
+"@algolia/ui-components-highlight-vdom@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@algolia/ui-components-highlight-vdom/-/ui-components-highlight-vdom-1.2.1.tgz#c430c9f090ef8c68477ef4b685324ed231ce0c13"
+  integrity sha512-IlYgIaCUEkz9ezNbwugwKv991oOHhveyq6nzL0F1jDzg1p3q5Yj/vO4KpNG910r2dwGCG3nEm5GtChcLnarhFA==
+  dependencies:
+    "@algolia/ui-components-shared" "1.2.1"
+    "@babel/runtime" "^7.0.0"
+
+"@algolia/ui-components-horizontal-slider-vdom@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@algolia/ui-components-horizontal-slider-vdom/-/ui-components-horizontal-slider-vdom-1.2.1.tgz#e6b058f1f6b2fa8e948e435b55934ef54e696964"
+  integrity sha512-PsdT7NavEeC1fKHiM2QrYXw6GQFSVFuL/1zM6tsl7yWj4pC5kwjBL7+K+Ztfkx9rWm2QmSQDY3v5CxKDOZ9oYg==
+  dependencies:
+    "@algolia/ui-components-shared" "1.2.1"
+    "@babel/runtime" "^7.0.0"
+
+"@algolia/ui-components-shared@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@algolia/ui-components-shared/-/ui-components-shared-1.2.1.tgz#62e3a04fc11623f149312942cd764d4528dd994c"
+  integrity sha512-a7mYHf/GVQfhAx/HRiMveKkFvHspQv/REdG+C/FIOosiSmNZxX7QebDwJkrGSmDWdXO12D0Qv1xn3AytFcEDlQ==
+
 "@babel/cli@7.13.0":
   version "7.13.0"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.13.0.tgz#48e77614e897615ca299bece587b68a70723ff4c"

@@ -1,3 +1,12 @@
+## [1.2.2](https://github.com/algolia/ui-components/compare/v1.2.0...v1.2.2) (2023-10-04)
+
+
+### Bug Fixes
+
+* **types:** don't pollute globals with JSX ([#29](https://github.com/algolia/ui-components/issues/29)) ([d3e3ba3](https://github.com/algolia/ui-components/commit/d3e3ba3c8f930138ea2ecf82129dd4bed4115621))
+
+
+
 ## [1.2.1](https://github.com/algolia/ui-components/compare/v1.2.0...v1.2.1) (2022-10-17)
 
 

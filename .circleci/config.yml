@@ -168,7 +168,7 @@ workflows:
     jobs:
       - build
       - test_types
-      - test_types_no_jsx_implementation
+      - test_types_no_jsx_implementation:
           requires:
             - build
       - test_lint:

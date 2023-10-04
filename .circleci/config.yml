@@ -113,9 +113,7 @@ jobs:
       - checkout
       - run: *install_yarn_version
       - restore_cache: *restore_yarn_cache
-      - run:
-          name: Build types
-          command: yarn build:types --scope '@algolia/*-{shared,vdom}'
+      - run: *restore_dist_folders
       - run:
           name: Remove React types
           command: |

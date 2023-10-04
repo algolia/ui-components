@@ -7,23 +7,6 @@ import {
   Renderer,
 } from '@algolia/ui-components-shared';
 
-// Basic types to allow this file to compile without a JSX implementation.
-// This is a minimal subset of the actual types from the `JSX` namespace.
-interface IntrinsicElement extends JSX.IntrinsicAttributes {
-  children?: ComponentChildren;
-  className?: string;
-}
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace JSX {
-    interface IntrinsicElements {
-      span: IntrinsicElement;
-      mark: IntrinsicElement;
-    }
-  }
-}
-
 type HighlightPartProps = {
   children: ComponentChildren;
   classNames: Partial<HighlightClassNames>;
@@ -95,15 +78,19 @@ export function createHighlightComponent({
     Fragment,
   });
 
-  return function Highlight({
-    parts,
-    highlightedTagName = 'mark',
-    nonHighlightedTagName = 'span',
-    separator = ', ',
-    className,
-    classNames = {},
-    ...props
-  }: HighlightProps) {
+  return function Highlight(userProps: HighlightProps) {
+    // Not destructured in function signature, to make sure it's not exposed in
+    // the type definition.
+    const {
+      parts,
+      highlightedTagName = 'mark',
+      nonHighlightedTagName = 'span',
+      separator = ', ',
+      className,
+      classNames = {},
+      ...props
+    } = userProps;
+
     return (
       <span {...props} className={cx(classNames.root, className)}>
         {parts.map((part, partIndex) => {

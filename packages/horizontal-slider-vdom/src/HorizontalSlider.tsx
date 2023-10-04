@@ -1,5 +1,5 @@
 /** @jsx createElement */
-import { ComponentChildren, cx, Renderer } from '@algolia/ui-components-shared';
+import { cx, Renderer } from '@algolia/ui-components-shared';
 
 import {
   FrameworkProps,
@@ -7,45 +7,6 @@ import {
   HorizontalSliderTranslations,
   RecordWithObjectID,
 } from './types';
-
-// basic types to allow this file to compile without @types/react or preact
-// this is a minimal subset of the actual types, coming from the JSX namespace
-interface IntrinsicElement extends JSX.IntrinsicAttributes {
-  children?: ComponentChildren;
-
-  className?: string;
-  id?: string;
-  tabIndex?: string | number;
-  title?: string;
-
-  onClick?: (event: MouseEvent) => void;
-  onKeyDown?: (event: KeyboardEvent) => void;
-  onScroll?: (event: MouseEvent) => void;
-}
-
-interface IntrinsicSvgElement extends IntrinsicElement {
-  width?: string;
-  height?: string;
-  viewBox?: string;
-  fill?: string;
-  fillRule?: string;
-  clipRule?: string;
-  d?: string;
-}
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace JSX {
-    interface IntrinsicElements {
-      div: IntrinsicElement;
-      button: IntrinsicElement;
-      ol: IntrinsicElement;
-      li: IntrinsicElement;
-      svg: IntrinsicSvgElement;
-      path: IntrinsicSvgElement;
-    }
-  }
-}
 
 let lastHorizontalSliderId = 0;
 

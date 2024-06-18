@@ -1,3 +1,12 @@
+## [1.2.3](https://github.com/algolia/ui-components/compare/v1.2.2...v1.2.3) (2024-06-18)
+
+
+### Bug Fixes
+
+* **slider:** correct type for itemComponent ([e9627ba](https://github.com/algolia/ui-components/commit/e9627ba48bb493880a07b8ef4c2a89db860be7c6))
+
+
+
 ## [1.2.2](https://github.com/algolia/ui-components/compare/v1.2.0...v1.2.2) (2023-10-04)
 
 
